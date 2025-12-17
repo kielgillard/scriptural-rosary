@@ -282,10 +282,11 @@ class RosaryApp {
             });
         }
 
-        // Opening: Glory Be
+        // Opening: Glory Be (with Fatima Prayer)
         this.steps.push({
             type: 'gloryBe',
             prayer: PRAYERS.gloryBe,
+            fatimaPrayer: PRAYERS.fatimaPrayer,
             scripture: null
         });
 
@@ -370,6 +371,9 @@ class RosaryApp {
         // Update prayer content
         const title = document.getElementById('prayer-title');
         const text = document.getElementById('prayer-text');
+        const gloryBeSection = document.getElementById('glory-be-section');
+        const gloryBeTitle = document.getElementById('glory-be-title');
+        const gloryBeText = document.getElementById('glory-be-text');
         const fatimaSection = document.getElementById('fatima-prayer-section');
         const fatimaTitle = document.getElementById('fatima-prayer-title');
         const fatimaText = document.getElementById('fatima-prayer-text');
@@ -381,17 +385,21 @@ class RosaryApp {
         const reference = document.getElementById('scripture-reference');
 
         if (step.mysteryName) {
-            if (step.type === 'gloryBe' && step.fatimaPrayer) {
-                title.textContent = `${step.mysteryName} - Glory Be & Fatima Prayer`;
-            } else {
-                title.textContent = step.mysteryName;
-            }
+            title.textContent = step.mysteryName;
         } else {
             title.textContent = step.prayer.title;
         }
 
-        // Display prayer text
-        text.textContent = step.prayer.text;
+        // Display Glory Be with heading if it's a Glory Be step
+        if (step.type === 'gloryBe') {
+            gloryBeTitle.textContent = 'Glory Be';
+            gloryBeText.textContent = step.prayer.text;
+            gloryBeSection.classList.remove('hidden');
+            text.textContent = ''; // Clear regular prayer text
+        } else {
+            gloryBeSection.classList.add('hidden');
+            text.textContent = step.prayer.text;
+        }
         
         // Display Fatima Prayer separately if present
         if (step.type === 'gloryBe' && step.fatimaPrayer) {

@@ -605,6 +605,26 @@ h2 {
     margin-bottom: 20px;
 }
 
+#glory-be-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#glory-be-title {
+    font-size: 1.5rem;
+    color: #667eea;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#glory-be-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: center;
+}
+
 #fatima-prayer-section {
     margin-top: 40px;
     padding-top: 30px;
@@ -1039,6 +1059,14 @@ h2 {
     
     #john-paul-reference {
         color: #b0b0b0;
+    }
+    
+    #glory-be-title {
+        color: #ffffff;
+    }
+    
+    #glory-be-text {
+        color: #e0e0e0;
     }
     
     #fatima-prayer-title {
