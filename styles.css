@@ -351,8 +351,8 @@ h2 {
 }
 
 .mystery-bead {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     border: 2px solid;
     cursor: pointer;
@@ -388,8 +388,8 @@ h2 {
 }
 
 .mystery-bead.active {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-width: 3px;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
     animation: pulse 1s infinite;
