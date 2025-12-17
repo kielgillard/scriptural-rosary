@@ -34,6 +34,9 @@ class RosaryApp {
             this.goToHome();
         });
 
+        // Swipe gesture navigation for mobile
+        this.setupSwipeGestures();
+
         // Arrow key navigation
         document.addEventListener('keydown', (e) => {
             const activeScreen = document.querySelector('.screen.active');
@@ -742,6 +745,46 @@ class RosaryApp {
             this.currentStep--;
             this.renderPrayerStep();
         }
+    }
+
+    setupSwipeGestures() {
+        const prayerScreen = document.getElementById('prayer-screen');
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        const minSwipeDistance = 50; // Minimum distance in pixels for a swipe
+
+        prayerScreen.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        prayerScreen.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            const absDeltaX = Math.abs(deltaX);
+            const absDeltaY = Math.abs(deltaY);
+            
+            // Only process swipe if horizontal movement is greater than vertical (horizontal swipe)
+            // and the distance is greater than the minimum
+            if (absDeltaX > absDeltaY && absDeltaX > minSwipeDistance) {
+                // Check if we're on the prayer screen
+                const activeScreen = document.querySelector('.screen.active');
+                if (activeScreen && activeScreen.id === 'prayer-screen') {
+                    if (deltaX > 0) {
+                        // Swipe right - go to previous step
+                        this.previousStep();
+                    } else {
+                        // Swipe left - go to next step
+                        this.nextStep();
+                    }
+                }
+            }
+        }, { passive: true });
     }
 
     goToHome() {
