@@ -18,11 +18,25 @@ class RosaryApp {
             this.startPrayer();
         });
 
+        // Mobile overview navigation button
+        document.getElementById('mobile-start-prayer-btn').addEventListener('click', () => {
+            this.startPrayer();
+        });
+
         document.getElementById('next-btn').addEventListener('click', () => {
             this.nextStep();
         });
 
         document.getElementById('back-btn').addEventListener('click', () => {
+            this.previousStep();
+        });
+
+        // Mobile navigation buttons
+        document.getElementById('mobile-next-btn').addEventListener('click', () => {
+            this.nextStep();
+        });
+
+        document.getElementById('mobile-back-btn').addEventListener('click', () => {
             this.previousStep();
         });
 
@@ -367,9 +381,7 @@ class RosaryApp {
         const reference = document.getElementById('scripture-reference');
 
         if (step.mysteryName) {
-            if (step.type === 'hailMary' && step.hailMaryNumber) {
-                title.textContent = `${step.mysteryName} - Hail Mary ${step.hailMaryNumber}`;
-            } else if (step.type === 'gloryBe' && step.fatimaPrayer) {
+            if (step.type === 'gloryBe' && step.fatimaPrayer) {
                 title.textContent = `${step.mysteryName} - Glory Be & Fatima Prayer`;
             } else {
                 title.textContent = step.mysteryName;
@@ -453,25 +465,35 @@ class RosaryApp {
             reference.classList.add('hidden');
         }
 
-        // Update buttons
+        // Update buttons (desktop and mobile)
         const nextBtn = document.getElementById('next-btn');
         const backBtn = document.getElementById('back-btn');
+        const mobileNextBtn = document.getElementById('mobile-next-btn');
+        const mobileBackBtn = document.getElementById('mobile-back-btn');
 
         if (this.currentStep === 0) {
             backBtn.style.display = 'none';
+            if (mobileBackBtn) mobileBackBtn.style.display = 'none';
         } else {
             backBtn.style.display = 'inline-block';
+            if (mobileBackBtn) mobileBackBtn.style.display = 'inline-block';
         }
 
-        if (this.currentStep === this.steps.length - 1) {
-            nextBtn.textContent = 'Return to Home';
-        } else {
-            nextBtn.textContent = 'Next';
-        }
+        const nextBtnText = this.currentStep === this.steps.length - 1 ? 'Return to Home' : 'Next';
+        nextBtn.textContent = nextBtnText;
+        if (mobileNextBtn) mobileNextBtn.textContent = nextBtnText;
     }
 
     renderMysteryBeads() {
         const beadsContainer = document.getElementById('mystery-beads');
+        const mobileBeadsContainer = document.getElementById('mobile-mystery-beads');
+        
+        // Render to both desktop and mobile containers
+        this.renderBeadsToContainer(beadsContainer);
+        this.renderBeadsToContainer(mobileBeadsContainer);
+    }
+    
+    renderBeadsToContainer(beadsContainer) {
         beadsContainer.innerHTML = '';
         
         const currentStep = this.steps[this.currentStep];

@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Georgia', 'Times New Roman', serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: white;
     min-height: 100vh;
     overflow-x: hidden;
     color: #333;
@@ -62,18 +62,16 @@ body {
 
 h1 {
     text-align: center;
-    color: white;
+    color: #333;
     font-size: 2.5rem;
     margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 h2 {
     text-align: center;
-    color: white;
+    color: #333;
     font-size: 2rem;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 #mystery-list {
@@ -235,11 +233,7 @@ h2 {
 }
 
 #rosary-overview {
-    background: white;
-    border-radius: 15px;
-    padding: 30px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px 0;
 }
 
 .jpii-summary {
@@ -588,11 +582,7 @@ h2 {
 }
 
 #prayer-content {
-    background: white;
-    border-radius: 15px;
-    padding: 40px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px 0;
     min-height: 400px;
     display: flex;
     flex-direction: column;
@@ -798,8 +788,91 @@ h2 {
     }
 }
 
+/* Mobile Bottom Navigation Bar */
+.mobile-bottom-nav {
+    display: none;
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
+    /* Hide desktop navigation on mobile */
+    .button-group {
+        display: none;
+    }
+    
+    #mystery-beads {
+        display: none !important;
+    }
+    
+    /* Hide desktop "Begin Prayer" button on overview screen */
+    #start-prayer-btn {
+        display: none;
+    }
+    
+    /* Show mobile bottom navigation */
+    .mobile-bottom-nav {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-top: 2px solid rgba(224, 224, 224, 0.5);
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    
+    #mobile-mystery-beads {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+    }
+    
+    #mobile-mystery-beads.hidden {
+        display: none;
+    }
+    
+    .mobile-button-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .mobile-button-group button {
+        flex: 1;
+        max-width: 150px;
+    }
+    
+    /* Mobile overview bottom nav - single button */
+    #mobile-overview-bottom-nav {
+        justify-content: center;
+    }
+    
+    #mobile-overview-bottom-nav button {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Add padding to screens so content doesn't get hidden behind bottom nav */
+    #prayer-screen {
+        padding-bottom: 120px;
+    }
+    
+    #overview-screen {
+        padding-bottom: 80px;
+    }
+    
+    #prayer-content {
+        margin-bottom: 20px;
+    }
+    
     h1 {
         font-size: 2rem;
     }
@@ -836,6 +909,207 @@ h2 {
     .mystery-art {
         min-width: 150px;
         height: 120px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #e0e0e0;
+    }
+    
+    h1, h2 {
+        color: #ffffff;
+    }
+    
+    .mystery-card {
+        background: #2d2d2d;
+        color: #e0e0e0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    .mystery-card:hover {
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+    }
+    
+    .mystery-card.today {
+        border-color: #ffd700;
+        background: #3a3a2a;
+    }
+    
+    .mystery-card.today::before {
+        background: #ffd700;
+        color: #1a1a1a;
+    }
+    
+    .mystery-card.focused {
+        outline-color: #8b9aff;
+        box-shadow: 0 0 20px rgba(139, 154, 255, 0.6);
+    }
+    
+    .mystery-card.today.focused {
+        box-shadow: 0 0 20px rgba(139, 154, 255, 0.6), 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    
+    .mystery-card h3 {
+        color: #ffffff;
+    }
+    
+    .mystery-card p {
+        color: #b0b0b0;
+    }
+    
+    .btn-primary {
+        background: #667eea;
+        color: #ffffff;
+    }
+    
+    .btn-primary:hover {
+        background: #5568d3;
+    }
+    
+    .btn-secondary {
+        background: #4a4a4a;
+        color: #ffffff;
+    }
+    
+    .btn-secondary:hover {
+        background: #5a5a5a;
+    }
+    
+    .btn-home {
+        background: rgba(45, 45, 45, 0.9);
+        color: #ffffff;
+    }
+    
+    .btn-home:hover {
+        background: rgba(55, 55, 55, 0.95);
+    }
+    
+    #prayer-title {
+        color: #ffffff;
+    }
+    
+    #prayer-text {
+        color: #e0e0e0;
+    }
+    
+    #catechism-quote {
+        background: #2d2d2d;
+        color: #d0d0d0;
+        border-left-color: #8b7355;
+    }
+    
+    #catechism-reference {
+        color: #b0b0b0;
+    }
+    
+    .catechism-reference-link {
+        color: #9bb5ff;
+    }
+    
+    .catechism-reference-link:hover {
+        color: #b8c9ff;
+    }
+    
+    #scripture-quote {
+        background: #2d2d2d;
+        color: #d0d0d0;
+        border-left-color: #8b9aff;
+    }
+    
+    #scripture-reference {
+        color: #b0b0b0;
+    }
+    
+    .bible-reference-link {
+        color: #9bb5ff;
+    }
+    
+    .bible-reference-link:hover {
+        color: #b8c9ff;
+    }
+    
+    #john-paul-reflection {
+        background: #2d2d2d;
+        color: #d0d0d0;
+        border-left-color: #8b9aff;
+    }
+    
+    #john-paul-reference {
+        color: #b0b0b0;
+    }
+    
+    #fatima-prayer-title {
+        color: #ffffff;
+    }
+    
+    #fatima-prayer-text {
+        color: #e0e0e0;
+    }
+    
+    #rosary-overview {
+        color: #e0e0e0;
+    }
+    
+    .jpii-summary h3 {
+        color: #9bb5ff;
+    }
+    
+    .jpii-summary p {
+        color: #d0d0d0;
+    }
+    
+    .jpii-summary .summary-source {
+        color: #b0b0b0;
+    }
+    
+    .mystery-bead.ourFather {
+        background: #8b7355;
+        border-color: #6b5a45;
+    }
+    
+    .mystery-bead.hailMary {
+        background: #6b9db8;
+        border-color: #5a8aa3;
+    }
+    
+    .mystery-bead.completed.ourFather {
+        background: #6b5a45;
+        border-color: #5a4a35;
+    }
+    
+    .mystery-bead.completed.hailMary {
+        background: #5a8aa3;
+        border-color: #4a7a93;
+    }
+    
+    .mystery-bead.active.ourFather {
+        background: #8b7355;
+        border-color: #ffd700;
+    }
+    
+    .mystery-bead.active.hailMary {
+        background: #6b9db8;
+        border-color: #ffd700;
+    }
+    
+    .mystery-bead.crucifix {
+        background: #6b4a2a;
+        border-color: #5a3a1a;
+    }
+    
+    .mobile-bottom-nav {
+        background: rgba(45, 45, 45, 0.65);
+        border-top-color: rgba(100, 100, 100, 0.5);
+    }
+    
+    @media (max-width: 768px) {
+        .mobile-bottom-nav {
+            background: rgba(45, 45, 45, 0.65);
+            border-top-color: rgba(100, 100, 100, 0.5);
+        }
     }
 }
 
