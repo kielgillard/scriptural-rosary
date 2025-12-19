@@ -171,6 +171,7 @@ h2 {
     border-radius: 5px;
     font-size: 0.8rem;
     font-weight: bold;
+    z-index: 10;
 }
 
 .mystery-card h3 {
@@ -992,6 +993,7 @@ h2 {
     .mystery-card.today::before {
         background: #ffd700;
         color: #1a1a1a;
+        z-index: 10;
     }
     
     .mystery-card.focused {
