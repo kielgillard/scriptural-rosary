@@ -10,59 +10,62 @@
 </head>
 <body>
     <div id="app">
-        <!-- Home Screen -->
-        <div id="home-screen" class="screen active">
-            <h1>Scriptural Rosary</h1>
-            <div id="mystery-list"></div>
-        </div>
+        <header>
+            <button id="header-home-btn" class="btn-home">Home</button>
+            <h1 id="header-title">Scriptural Rosary</h1>
+        </header>
+        <main>
+            <!-- Home Screen -->
+            <div id="home-screen" class="screen active">
+                <div id="mystery-list"></div>
+            </div>
 
-        <!-- Overview Screen -->
-        <div id="overview-screen" class="screen">
-            <button id="home-btn-overview" class="btn-home">Home</button>
-            <h2 id="overview-title"></h2>
-            <div id="rosary-overview"></div>
-            <button id="start-prayer-btn" class="btn-primary">Begin Prayer</button>
-            <!-- Mobile Bottom Navigation Bar -->
-            <div id="mobile-overview-bottom-nav" class="mobile-bottom-nav">
-                <button id="mobile-start-prayer-btn" class="btn-primary">Begin Prayer</button>
+            <!-- Overview Screen -->
+            <div id="overview-screen" class="screen">
+                <div id="rosary-overview"></div>
+                <button id="start-prayer-btn" class="btn-primary">Begin Mystery</button>
+                <!-- Mobile Bottom Navigation Bar -->
+                <div id="mobile-overview-bottom-nav" class="mobile-bottom-nav">
+                    <div class="mobile-button-group">
+                        <button id="mobile-start-prayer-btn" class="btn-primary">Begin Mystery</button>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Prayer Screen -->
-        <div id="prayer-screen" class="screen">
-            <button id="home-btn-prayer" class="btn-home">Home</button>
-            <div id="prayer-content">
-                <div id="prayer-title"></div>
-                <div id="glory-be-section" class="hidden">
-                    <div id="glory-be-title"></div>
-                    <div id="glory-be-text"></div>
+            <!-- Prayer Screen -->
+            <div id="prayer-screen" class="screen">
+                <div id="prayer-content">
+                    <div id="scripture-quote" class="hidden"></div>
+                    <div id="scripture-reference" class="hidden"></div>
+                    <div id="catechism-quote" class="hidden"></div>
+                    <div id="catechism-reference" class="hidden"></div>
+                    <div id="john-paul-reflection" class="hidden"></div>
+                    <div id="john-paul-reference" class="hidden"></div>
+                    <div id="glory-be-section" class="hidden">
+                        <div id="glory-be-title"></div>
+                        <div id="glory-be-text"></div>
+                    </div>
+                    <div id="prayer-text"></div>
+                    <div id="fatima-prayer-section" class="hidden">
+                        <div id="fatima-prayer-title"></div>
+                        <div id="fatima-prayer-text"></div>
+                    </div>
                 </div>
-                <div id="prayer-text"></div>
-                <div id="fatima-prayer-section" class="hidden">
-                    <div id="fatima-prayer-title"></div>
-                    <div id="fatima-prayer-text"></div>
+                <div id="mystery-beads" class="hidden"></div>
+                <div class="button-group">
+                    <button id="back-btn" class="btn-secondary">Back</button>
+                    <button id="next-btn" class="btn-primary">Next</button>
                 </div>
-                <div id="catechism-quote" class="hidden"></div>
-                <div id="catechism-reference" class="hidden"></div>
-                <div id="john-paul-reflection" class="hidden"></div>
-                <div id="john-paul-reference" class="hidden"></div>
-                <div id="scripture-quote" class="hidden"></div>
-                <div id="scripture-reference" class="hidden"></div>
-            </div>
-            <div id="mystery-beads" class="hidden"></div>
-            <div class="button-group">
-                <button id="back-btn" class="btn-secondary">Back</button>
-                <button id="next-btn" class="btn-primary">Next</button>
-            </div>
-            <!-- Mobile Bottom Navigation Bar -->
-            <div id="mobile-bottom-nav" class="mobile-bottom-nav">
-                <div id="mobile-mystery-beads" class="hidden"></div>
-                <div class="mobile-button-group">
-                    <button id="mobile-back-btn" class="btn-secondary">Back</button>
-                    <button id="mobile-next-btn" class="btn-primary">Next</button>
+                <!-- Mobile Bottom Navigation Bar -->
+                <div id="mobile-bottom-nav" class="mobile-bottom-nav">
+                    <div id="mobile-mystery-beads" class="hidden"></div>
+                    <div class="mobile-button-group">
+                        <button id="mobile-back-btn" class="btn-secondary">Back</button>
+                        <button id="mobile-next-btn" class="btn-primary">Next</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 
     <script src="data.js"></script>

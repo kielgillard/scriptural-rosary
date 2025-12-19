@@ -40,11 +40,7 @@ class RosaryApp {
             this.previousStep();
         });
 
-        document.getElementById('home-btn-overview').addEventListener('click', () => {
-            this.goToHome();
-        });
-
-        document.getElementById('home-btn-prayer').addEventListener('click', () => {
+        document.getElementById('header-home-btn').addEventListener('click', () => {
             this.goToHome();
         });
 
@@ -108,6 +104,9 @@ class RosaryApp {
     }
 
     renderHomeScreen() {
+        // Update header title
+        document.getElementById('header-title').textContent = 'Scriptural Rosary';
+        
         const mysteryList = document.getElementById('mystery-list');
         mysteryList.innerHTML = '';
         
@@ -213,7 +212,8 @@ class RosaryApp {
     }
 
     renderOverview() {
-        document.getElementById('overview-title').textContent = this.currentMystery.name;
+        // Update header title
+        document.getElementById('header-title').textContent = this.currentMystery.name;
         
         const overview = document.getElementById('rosary-overview');
         
@@ -369,7 +369,6 @@ class RosaryApp {
         this.renderMysteryBeads();
 
         // Update prayer content
-        const title = document.getElementById('prayer-title');
         const text = document.getElementById('prayer-text');
         const gloryBeSection = document.getElementById('glory-be-section');
         const gloryBeTitle = document.getElementById('glory-be-title');
@@ -384,10 +383,11 @@ class RosaryApp {
         const quote = document.getElementById('scripture-quote');
         const reference = document.getElementById('scripture-reference');
 
+        // Update header title
         if (step.mysteryName) {
-            title.textContent = step.mysteryName;
+            document.getElementById('header-title').textContent = step.mysteryName;
         } else {
-            title.textContent = step.prayer.title;
+            document.getElementById('header-title').textContent = step.prayer.title;
         }
 
         // Display Glory Be with heading if it's a Glory Be step
@@ -830,6 +830,11 @@ class RosaryApp {
             screen.classList.remove('active');
         });
         document.getElementById(screenId).classList.add('active');
+        
+        // Update header title based on screen
+        if (screenId === 'home-screen') {
+            document.getElementById('header-title').textContent = 'Scriptural Rosary';
+        }
     }
 }
 

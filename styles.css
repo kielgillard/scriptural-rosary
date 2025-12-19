@@ -16,6 +16,41 @@ body {
     position: relative;
     width: 100%;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 100;
+}
+
+header #header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+header .btn-home {
+    position: static;
+    margin: 0;
+    z-index: 1;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .screen {
@@ -25,6 +60,8 @@ body {
     margin: 0 auto;
     animation: fadeIn 0.5s ease-in-out;
     position: relative;
+    flex: 1;
+    width: 100%;
 }
 
 .screen.active {
@@ -65,6 +102,11 @@ h1 {
     color: #333;
     font-size: 2.5rem;
     margin-bottom: 30px;
+}
+
+/* Header title overrides */
+header #header-title {
+    margin-bottom: 0;
 }
 
 h2 {
@@ -646,7 +688,7 @@ h2 {
     line-height: 1.8;
     color: #555;
     font-style: italic;
-    margin: 20px 0;
+    margin: 15px 0;
     padding: 20px;
     background: #fff9e6;
     border-left: 4px solid #d2b48c;
@@ -657,7 +699,8 @@ h2 {
     font-size: 0.95rem;
     color: #666;
     text-align: right;
-    margin-top: 10px;
+    margin-top: 2px;
+    margin-bottom: 30px;
     font-style: italic;
 }
 
@@ -677,7 +720,7 @@ h2 {
     line-height: 1.8;
     color: #555;
     font-style: italic;
-    margin: 20px 0;
+    margin: 15px 0;
     padding: 20px;
     background: #f0f4ff;
     border-left: 4px solid #667eea;
@@ -688,7 +731,8 @@ h2 {
     font-size: 0.95rem;
     color: #666;
     text-align: right;
-    margin-top: 10px;
+    margin-top: 2px;
+    margin-bottom: 30px;
     font-style: italic;
 }
 
@@ -697,7 +741,7 @@ h2 {
     line-height: 1.8;
     color: #555;
     font-style: italic;
-    margin: 30px 0;
+    margin: 15px 0;
     padding: 20px;
     background: #f8f9fa;
     border-left: 4px solid #667eea;
@@ -708,7 +752,8 @@ h2 {
     font-size: 1rem;
     color: #666;
     text-align: right;
-    margin-top: 10px;
+    margin-top: 2px;
+    margin-bottom: 30px;
     font-style: italic;
 }
 
@@ -774,9 +819,6 @@ h2 {
 }
 
 .btn-home {
-    position: absolute;
-    top: 20px;
-    left: 20px;
     padding: 10px 20px;
     font-size: 1rem;
     border: none;
@@ -787,7 +829,7 @@ h2 {
     background: rgba(255, 255, 255, 0.9);
     color: #667eea;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    z-index: 100;
+    flex-shrink: 0;
 }
 
 .btn-home:hover {
@@ -855,25 +897,17 @@ h2 {
     
     .mobile-button-group {
         display: flex;
-        justify-content: center;
         gap: 10px;
         width: 100%;
     }
     
     .mobile-button-group button {
         flex: 1;
-        max-width: 150px;
+        min-width: 0;
     }
     
     /* Mobile overview bottom nav - single button */
-    #mobile-overview-bottom-nav {
-        justify-content: center;
-    }
-    
-    #mobile-overview-bottom-nav button {
-        width: 100%;
-        max-width: 300px;
-    }
+    /* Uses same structure as mobile-button-group now */
     
     /* Add padding to screens so content doesn't get hidden behind bottom nav */
     #prayer-screen {
@@ -886,10 +920,6 @@ h2 {
     
     #prayer-content {
         margin-bottom: 20px;
-    }
-    
-    h1 {
-        font-size: 2rem;
     }
     
     h2 {
@@ -914,9 +944,15 @@ h2 {
         height: 35px;
     }
     
+    header {
+        padding: 10px 15px;
+    }
+    
+    header #header-title {
+        font-size: 1.25rem;
+    }
+    
     .btn-home {
-        top: 10px;
-        left: 10px;
         padding: 8px 16px;
         font-size: 0.9rem;
     }
@@ -991,6 +1027,15 @@ h2 {
     
     .btn-secondary:hover {
         background: #5a5a5a;
+    }
+    
+    header {
+        background: #2d2d2d;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    header #header-title {
+        color: #ffffff;
     }
     
     .btn-home {
