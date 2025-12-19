@@ -176,11 +176,6 @@ h2 {
     border-radius: 10px;
     scroll-snap-align: start;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
-}
-
-.mystery-art:hover {
-    transform: scale(1.05);
 }
 
 /* Single image takes full width */
