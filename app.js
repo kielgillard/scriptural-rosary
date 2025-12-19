@@ -128,15 +128,15 @@ class RosaryApp {
             card.setAttribute('data-mystery-index', index);
             card.setAttribute('tabindex', '0');
             
-            // Create artwork gallery
-            const artUrls = mystery.artUrls || [mystery.artUrl];
-            const artGallery = artUrls.map(url => 
-                `<img src="${url}" alt="${mystery.name}" class="mystery-art" onerror="this.style.display='none'" loading="lazy">`
-            ).join('');
+            // Use single art URL
+            const artUrl = mystery.artUrl || '';
+            const artImage = artUrl ? 
+                `<img src="${artUrl}" alt="${mystery.name}" class="mystery-art" onerror="this.style.display='none'" loading="lazy">` : 
+                '';
             
             card.innerHTML = `
                 <div class="mystery-art-gallery">
-                    ${artGallery}
+                    ${artImage}
                 </div>
                 <h3>${mystery.name}</h3>
                 <p>Pray the ${mystery.name.toLowerCase()} with scriptural meditations</p>

@@ -121,12 +121,7 @@ const MYSTERIES = {
                 ]
             }
         ],
-        artUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Fra_Angelico_-_Annunciation.jpg/960px-Fra_Angelico_-_Annunciation.jpg',
-        artUrls: [
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Fra_Angelico_-_Annunciation.jpg/960px-Fra_Angelico_-_Annunciation.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Visitation_%28Pontormo%29.jpg/960px-Visitation_%28Pontormo%29.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Giotto_-_Scenes_from_the_Life_of_Christ_-_7._Nativity.jpg/960px-Giotto_-_Scenes_from_the_Life_of_Christ_-_7._Nativity.jpg'
-        ]
+        artUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Fra_Angelico_-_Annunciation.jpg/960px-Fra_Angelico_-_Annunciation.jpg'
     },
     sorrowful: {
         name: 'Sorrowful Mysteries',
@@ -238,12 +233,7 @@ const MYSTERIES = {
                 ]
             }
         ],
-        artUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/El_Greco_-_Christ_in_the_Garden_of_Gethsemane.jpg/960px-El_Greco_-_Christ_in_the_Garden_of_Gethsemane.jpg',
-        artUrls: [
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/El_Greco_-_Christ_in_the_Garden_of_Gethsemane.jpg/960px-El_Greco_-_Christ_in_the_Garden_of_Gethsemane.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Flagellation_of_Christ_%28Caravaggio%29.jpg/960px-Flagellation_of_Christ_%28Caravaggio%29.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Caravaggio_-_Crowning_with_Thorns.jpg/960px-Caravaggio_-_Crowning_with_Thorns.jpg'
-        ]
+        artUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/El_Greco_019.jpg/960px-El_Greco_019.jpg'
     },
     glorious: {
         name: 'Glorious Mysteries',
@@ -355,12 +345,7 @@ const MYSTERIES = {
                 ]
             }
         ],
-        artUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Piero_della_Francesca_046.jpg/960px-Piero_della_Francesca_046.jpg',
-        artUrls: [
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Piero_della_Francesca_046.jpg/960px-Piero_della_Francesca_046.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Ascension_of_Christ_by_Dosso_Dossi.jpg/960px-Ascension_of_Christ_by_Dosso_Dossi.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/El_Greco_-_Pentecost.jpg/960px-El_Greco_-_Pentecost.jpg'
-        ]
+        artUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Resurrection.JPG'
     },
     luminous: {
         name: 'Luminous Mysteries',
@@ -472,12 +457,7 @@ const MYSTERIES = {
                 ]
             }
         ],
-        artUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Veronese_-_The_Marriage_at_Cana.jpg/960px-Veronese_-_The_Marriage_at_Cana.jpg',
-        artUrls: [
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Veronese_-_The_Marriage_at_Cana.jpg/960px-Veronese_-_The_Marriage_at_Cana.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Baptism_of_Christ_Verrocchio.jpg/960px-Baptism_of_Christ_Verrocchio.jpg',
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Raphael_-_The_Transfiguration.jpg/960px-Raphael_-_The_Transfiguration.jpg'
-        ]
+        artUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Paolo_Veronese_008.jpg/960px-Paolo_Veronese_008.jpg'
     }
 };
 
