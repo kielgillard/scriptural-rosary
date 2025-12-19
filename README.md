@@ -1,6 +1,10 @@
 # Scriptural Rosary App
 
-A web-based application for praying the scriptural rosary with biblical meditations.
+Open this link: https://kielgillard.github.io/scriptural-rosary/
+
+A web-based application for praying the rosary with biblical meditations.
+
+Deployed by GitHub pages.
 
 ## Features
 
