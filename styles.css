@@ -635,6 +635,15 @@ h2 {
     font-weight: bold;
 }
 
+#prayer-type-heading {
+    font-size: 1.4rem;
+    color: #667eea;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
 #prayer-text {
     font-size: 1.3rem;
     line-height: 1.8;
@@ -649,11 +658,12 @@ h2 {
 }
 
 #glory-be-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #667eea;
     margin-bottom: 15px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
+    opacity: 0.85;
 }
 
 #glory-be-text {
@@ -670,11 +680,12 @@ h2 {
 }
 
 #fatima-prayer-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #667eea;
     margin-bottom: 15px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 600;
+    opacity: 0.85;
 }
 
 #fatima-prayer-text {
@@ -1053,6 +1064,10 @@ h2 {
         color: #ffffff;
     }
     
+    #prayer-type-heading {
+        color: #9bb5ff;
+    }
+    
     #prayer-text {
         color: #e0e0e0;
     }
@@ -1104,7 +1119,7 @@ h2 {
     }
     
     #glory-be-title {
-        color: #ffffff;
+        color: #9bb5ff;
     }
     
     #glory-be-text {
@@ -1112,7 +1127,7 @@ h2 {
     }
     
     #fatima-prayer-title {
-        color: #ffffff;
+        color: #9bb5ff;
     }
     
     #fatima-prayer-text {

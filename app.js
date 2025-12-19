@@ -370,6 +370,7 @@ class RosaryApp {
 
         // Update prayer content
         const text = document.getElementById('prayer-text');
+        const prayerTypeHeading = document.getElementById('prayer-type-heading');
         const gloryBeSection = document.getElementById('glory-be-section');
         const gloryBeTitle = document.getElementById('glory-be-title');
         const gloryBeText = document.getElementById('glory-be-text');
@@ -388,6 +389,17 @@ class RosaryApp {
             document.getElementById('header-title').textContent = step.mysteryName;
         } else {
             document.getElementById('header-title').textContent = step.prayer.title;
+        }
+
+        // Display secondary heading for Our Father or Hail Mary steps
+        if (step.type === 'ourFather') {
+            prayerTypeHeading.textContent = 'Our Father';
+            prayerTypeHeading.classList.remove('hidden');
+        } else if (step.type === 'hailMary') {
+            prayerTypeHeading.textContent = 'Hail Mary';
+            prayerTypeHeading.classList.remove('hidden');
+        } else {
+            prayerTypeHeading.classList.add('hidden');
         }
 
         // Display Glory Be with heading if it's a Glory Be step
