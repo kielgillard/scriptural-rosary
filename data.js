@@ -18,11 +18,6 @@ const MYSTERIES = {
             {
                 name: 'The Annunciation',
                 johnPaulIIReflection: 'The "joyful mysteries", are marked by the joy radiating from the event of the Incarnation. This is clear from the very first mystery, the Annunciation, where Gabriel\'s greeting to the Virgin of Nazareth is linked to an invitation to messianic joy: "Rejoice, Mary". The whole of salvation history, in some sense the entire history of the world, has led up to this greeting.',
-                catechismQuote: {
-                    text: 'The Word became flesh to make us "partakers of the divine nature".',
-                    reference: 'CCC 460',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1G.HTM'
-                },
                 scriptures: [
                     { quote: 'In the sixth month the angel Gabriel was sent by God to a town in Galilee called Nazareth, to a virgin engaged to a man whose name was Joseph, of the house of David. The virgin\'s name was Mary.', reference: 'Luke 1:26-27 (NRSV)' },
                     { quote: 'And he came to her and said, "Greetings, favored one! The Lord is with you." But she was much perplexed by his words and pondered what sort of greeting this might be.', reference: 'Luke 1:28-29 (NRSV)' },
@@ -39,11 +34,6 @@ const MYSTERIES = {
             {
                 name: 'The Visitation',
                 johnPaulIIReflection: 'Mary\'s visit to Elizabeth thus became a visit from God to his people. The joy of the Visitation is the joy of the messianic beginning, the joy of salvation beginning to take effect.',
-                catechismQuote: {
-                    text: 'Mary\'s visitation to Elizabeth thus became a visit from God to his people.',
-                    reference: 'CCC 717',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'In those days Mary set out and went with haste to a Judean town in the hill country, where she entered the house of Zechariah and greeted Elizabeth.', reference: 'Luke 1:39-40 (NRSV)' },
                     { quote: 'When Elizabeth heard Mary\'s greeting, the child leaped in her womb. And Elizabeth was filled with the Holy Spirit and exclaimed with a loud cry, "Blessed are you among women, and blessed is the fruit of your womb."', reference: 'Luke 1:41-42 (NRSV)' },
@@ -60,11 +50,6 @@ const MYSTERIES = {
             {
                 name: 'The Nativity',
                 johnPaulIIReflection: 'To become a child in relation to God is the condition for entering the kingdom. For this reason Mary, the Mother of God, is also the Mother of all who believe in her Son and follow him.',
-                catechismQuote: {
-                    text: 'To become a child in relation to God is the condition for entering the kingdom.',
-                    reference: 'CCC 526',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'In those days a decree went out from Emperor Augustus that all the world should be registered. This was the first registration and was taken while Quirinius was governor of Syria.', reference: 'Luke 2:1-2 (NRSV)' },
                     { quote: 'All went to their own towns to be registered. Joseph also went from the town of Nazareth in Galilee to Judea, to the city of David called Bethlehem, because he was descended from the house and family of David.', reference: 'Luke 2:3-4 (NRSV)' },
@@ -81,11 +66,6 @@ const MYSTERIES = {
             {
                 name: 'The Presentation',
                 johnPaulIIReflection: 'Jesus is the light of the nations, the "glory of Israel", but also "a sign that is spoken against". The sword of sorrow predicted for Mary announces Christ\'s perfect and unique oblation on the Cross.',
-                catechismQuote: {
-                    text: 'Jesus is the light of the nations, the "glory of Israel", but also "a sign that is spoken against".',
-                    reference: 'CCC 529',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'When the time came for their purification according to the law of Moses, they brought him up to Jerusalem to present him to the Lord (as it is written in the law of the Lord, "Every firstborn male shall be designated as holy to the Lord").', reference: 'Luke 2:22-23 (NRSV)' },
                     { quote: 'And they offered a sacrifice according to what is stated in the law of the Lord, "a pair of turtledoves or two young pigeons."', reference: 'Luke 2:24 (NRSV)' },
@@ -102,11 +82,6 @@ const MYSTERIES = {
             {
                 name: 'The Finding in the Temple',
                 johnPaulIIReflection: 'Jesus\' obedience to his mother and legal father fulfills the fourth commandment perfectly. It is the image of his filial obedience to the Father. The daily obedience of Jesus to Mary and Joseph both announces and anticipates the obedience of Holy Thursday.',
-                catechismQuote: {
-                    text: 'Jesus\' obedience to his mother and legal father fulfills the fourth commandment perfectly.',
-                    reference: 'CCC 532',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'Now every year his parents went to Jerusalem for the festival of the Passover. And when he was twelve years old, they went up as usual for the festival.', reference: 'Luke 2:41-42 (NRSV)' },
                     { quote: 'When the festival was ended and they started to return, the boy Jesus stayed behind in Jerusalem, but his parents did not know it.', reference: 'Luke 2:43 (NRSV)' },
@@ -130,11 +105,6 @@ const MYSTERIES = {
             {
                 name: 'The Agony in the Garden',
                 johnPaulIIReflection: 'The sorrowful mysteries help the believer to relive the death of Jesus, to stand at the foot of the Cross beside Mary, to enter with her into the depths of God\'s love for man and to experience all its life-giving power.',
-                catechismQuote: {
-                    text: 'Jesus prays: "My Father, if it be possible, let this cup pass from me..."',
-                    reference: 'CCC 612',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'Then Jesus went with them to a place called Gethsemane; and he said to his disciples, "Sit here while I go over there and pray."', reference: 'Matthew 26:36 (NRSV)' },
                     { quote: 'He took with him Peter and the two sons of Zebedee, and began to be grieved and agitated. Then he said to them, "I am deeply grieved, even to death; remain here, and stay awake with me."', reference: 'Matthew 26:37-38 (NRSV)' },
@@ -151,11 +121,6 @@ const MYSTERIES = {
             {
                 name: 'The Scourging at the Pillar',
                 johnPaulIIReflection: 'The scourging at the pillar reminds us of the seriousness of sin and the need for conversion. Through this mystery, we contemplate Christ\'s suffering and the price of our redemption.',
-                catechismQuote: {
-                    text: 'Jesus\' sufferings took their historical, concrete form from the fact that he was "rejected by the elders and the chief priests and the scribes".',
-                    reference: 'CCC 572',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'Now at the festival the governor was accustomed to release a prisoner for the crowd, anyone whom they wanted.', reference: 'Matthew 27:15 (NRSV)' },
                     { quote: 'At that time they had a notorious prisoner, called Jesus Barabbas. So after they had gathered, Pilate said to them, "Whom do you want me to release for you, Jesus Barabbas or Jesus who is called the Messiah?"', reference: 'Matthew 27:16-17 (NRSV)' },
@@ -172,11 +137,6 @@ const MYSTERIES = {
             {
                 name: 'The Crowning with Thorns',
                 johnPaulIIReflection: 'The crowning with thorns reveals the depth of Christ\'s humiliation. In this mystery, we see the mockery of human dignity and the profound love of Christ who accepts this suffering for our sake.',
-                catechismQuote: {
-                    text: 'Jesus accepted the title of Messiah, though with reserve because it was understood by some of his contemporaries in too human a sense.',
-                    reference: 'CCC 439',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1H.HTM'
-                },
                 scriptures: [
                     { quote: 'Then the soldiers of the governor took Jesus into the governor\'s headquarters, and they gathered the whole cohort around him.', reference: 'Matthew 27:27 (NRSV)' },
                     { quote: 'They stripped him and put a scarlet robe on him, and after twisting some thorns into a crown, they put it on his head. They put a reed in his right hand and knelt before him and mocked him, saying, "Hail, King of the Jews!"', reference: 'Matthew 27:28-29 (NRSV)' },
@@ -193,11 +153,6 @@ const MYSTERIES = {
             {
                 name: 'The Carrying of the Cross',
                 johnPaulIIReflection: 'The carrying of the cross expresses the meaning of discipleship. To carry the cross means to accept the will of God, to follow Christ even when the path is difficult, and to find in suffering a path to redemption.',
-                catechismQuote: {
-                    text: 'By accepting in his human will that the Father\'s will be done, he accepts his death as redemptive.',
-                    reference: 'CCC 612',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'So they took Jesus; and carrying the cross by himself, he went out to what is called The Place of the Skull, which in Hebrew is called Golgotha.', reference: 'John 19:17 (NRSV)' },
                     { quote: 'As they led him away, they seized a man, Simon of Cyrene, who was coming from the country, and they laid the cross on him, and made him carry it behind Jesus.', reference: 'Luke 23:26 (NRSV)' },
@@ -214,11 +169,6 @@ const MYSTERIES = {
             {
                 name: 'The Crucifixion',
                 johnPaulIIReflection: 'The crucifixion is the culmination of Christ\'s mission. At the foot of the Cross, Mary shares in the deepest way in the mystery of the Redemption. She becomes the Mother of all believers, accepting us as her children.',
-                catechismQuote: {
-                    text: 'Jesus consummates his sacrifice on the cross.',
-                    reference: 'CCC 616',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'When they came to the place that is called The Skull, they crucified Jesus there with the criminals, one on his right and one on his left.', reference: 'Luke 23:33 (NRSV)' },
                     { quote: 'Then Jesus said, "Father, forgive them; for they do not know what they are doing." And they cast lots to divide his clothing.', reference: 'Luke 23:34 (NRSV)' },
@@ -242,11 +192,6 @@ const MYSTERIES = {
             {
                 name: 'The Resurrection',
                 johnPaulIIReflection: 'The Resurrection of Jesus is the crowning truth of our faith in Christ. The glorious mysteries lead the faithful to greater hope for the eschatological goal towards which they journey as members of the pilgrim People of God in history.',
-                catechismQuote: {
-                    text: 'The Resurrection of Jesus is the crowning truth of our faith in Christ.',
-                    reference: 'CCC 638',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'After the sabbath, as the first day of the week was dawning, Mary Magdalene and the other Mary went to see the tomb.', reference: 'Matthew 28:1 (NRSV)' },
                     { quote: 'And suddenly there was a great earthquake; for an angel of the Lord, descending from heaven, came and rolled back the stone and sat on it.', reference: 'Matthew 28:2 (NRSV)' },
@@ -263,11 +208,6 @@ const MYSTERIES = {
             {
                 name: 'The Ascension',
                 johnPaulIIReflection: 'The Ascension marks the definitive entrance of Jesus\' humanity into God\'s heavenly domain, whence he will come again. Christ now sits at the right hand of the Father and intercedes for us.',
-                catechismQuote: {
-                    text: 'Jesus Christ, the head of the Church, precedes us into the Father\'s glorious kingdom.',
-                    reference: 'CCC 666',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'So then the Lord Jesus, after he had spoken to them, was taken up into heaven and sat down at the right hand of God.', reference: 'Mark 16:19 (NRSV)' },
                     { quote: 'Then they returned to Jerusalem from the mount called Olivet, which is near Jerusalem, a sabbath day\'s journey away.', reference: 'Acts 1:12 (NRSV)' },
@@ -284,11 +224,6 @@ const MYSTERIES = {
             {
                 name: 'The Descent of the Holy Spirit',
                 johnPaulIIReflection: 'On the day of Pentecost when the seven weeks of Easter had come to an end, Christ\'s Passover is fulfilled in the outpouring of the Holy Spirit. The Church is born and begins her mission to the world.',
-                catechismQuote: {
-                    text: 'On the day of Pentecost when the seven weeks of Easter had come to an end, Christ\'s Passover is fulfilled in the outpouring of the Holy Spirit.',
-                    reference: 'CCC 731',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'When the day of Pentecost had come, they were all together in one place.', reference: 'Acts 2:1 (NRSV)' },
                     { quote: 'And suddenly from heaven there came a sound like the rush of a violent wind, and it filled the entire house where they were sitting.', reference: 'Acts 2:2 (NRSV)' },
@@ -305,11 +240,6 @@ const MYSTERIES = {
             {
                 name: 'The Assumption',
                 johnPaulIIReflection: 'The Assumption of Mary into heaven is the sign of what we hope for. Mary, having completed the course of her earthly life, was assumed body and soul into heavenly glory, showing us the destiny of all the faithful.',
-                catechismQuote: {
-                    text: 'The Most Blessed Virgin Mary, when the course of her earthly life was completed, was taken up body and soul into the glory of heaven.',
-                    reference: 'CCC 974',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P2A.HTM'
-                },
                 scriptures: [
                     { quote: 'For the Lord himself, with a cry of command, with the archangel\'s call and with the sound of God\'s trumpet, will descend from heaven, and the dead in Christ will rise first.', reference: '1 Thessalonians 4:16 (NRSV)' },
                     { quote: 'Then we who are alive, who are left, will be caught up in the clouds together with them to meet the Lord in the air; and so we will be with the Lord forever.', reference: '1 Thessalonians 4:17 (NRSV)' },
@@ -326,11 +256,6 @@ const MYSTERIES = {
             {
                 name: 'The Coronation',
                 johnPaulIIReflection: 'The Coronation of Mary as Queen of Heaven and Earth is the culmination of her journey of faith. In her, we see the goal of our own journey: to share in the glory of Christ and to reign with him in the kingdom of heaven.',
-                catechismQuote: {
-                    text: 'Finally the Immaculate Virgin... was taken up body and soul into heavenly glory, and exalted by the Lord as Queen over all things.',
-                    reference: 'CCC 966',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P2A.HTM'
-                },
                 scriptures: [
                     { quote: 'A great portent appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.', reference: 'Revelation 12:1 (NRSV)' },
                     { quote: 'She was pregnant and was crying out in birth pangs, in the agony of giving birth.', reference: 'Revelation 12:2 (NRSV)' },
@@ -354,11 +279,6 @@ const MYSTERIES = {
             {
                 name: 'The Baptism of Jesus',
                 johnPaulIIReflection: 'The Baptism of Jesus marks the beginning of his public ministry. In this mystery, we contemplate the revelation of the Trinity and the inauguration of Christ\'s mission to bring salvation to all humanity.',
-                catechismQuote: {
-                    text: 'Jesus\' public life begins with his baptism by John in the Jordan.',
-                    reference: 'CCC 535',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'Then Jesus came from Galilee to John at the Jordan, to be baptized by him.', reference: 'Matthew 3:13 (NRSV)' },
                     { quote: 'John would have prevented him, saying, "I need to be baptized by you, and do you come to me?"', reference: 'Matthew 3:14 (NRSV)' },
@@ -375,11 +295,6 @@ const MYSTERIES = {
             {
                 name: 'The Wedding at Cana',
                 johnPaulIIReflection: 'The Wedding at Cana reveals Christ\'s power and Mary\'s intercessory role. At Mary\'s request, Jesus performs his first miracle, manifesting his glory and the beginning of the new creation.',
-                catechismQuote: {
-                    text: 'The Church attaches great importance to Jesus\' presence at the wedding at Cana.',
-                    reference: 'CCC 1613',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P4V.HTM'
-                },
                 scriptures: [
                     { quote: 'On the third day there was a wedding in Cana of Galilee, and the mother of Jesus was there.', reference: 'John 2:1 (NRSV)' },
                     { quote: 'Jesus and his disciples had also been invited to the wedding.', reference: 'John 2:2 (NRSV)' },
@@ -396,11 +311,6 @@ const MYSTERIES = {
             {
                 name: 'The Proclamation of the Kingdom',
                 johnPaulIIReflection: 'The Proclamation of the Kingdom calls us to conversion and faith. Jesus announces the coming of God\'s kingdom and invites all to repent and believe in the Gospel, opening our hearts to the transforming power of God\'s love.',
-                catechismQuote: {
-                    text: 'The kingdom of God has come near; repent, and believe in the good news.',
-                    reference: 'CCC 541',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'Now after John was arrested, Jesus came to Galilee, proclaiming the good news of God, and saying, "The time is fulfilled, and the kingdom of God has come near; repent, and believe in the good news."', reference: 'Mark 1:14-15 (NRSV)' },
                     { quote: 'As he walked by the Sea of Galilee, he saw two brothers, Simon, who is called Peter, and Andrew his brother, casting a net into the sea—for they were fishermen.', reference: 'Matthew 4:18 (NRSV)' },
@@ -417,11 +327,6 @@ const MYSTERIES = {
             {
                 name: 'The Transfiguration',
                 johnPaulIIReflection: 'The Transfiguration gives us a foretaste of Christ\'s glorious coming. In this mystery, we see the divine glory of Jesus and are called to listen to him, preparing us for the mystery of the Cross and Resurrection.',
-                catechismQuote: {
-                    text: 'Christ\'s Transfiguration aims at strengthening the apostles\' faith.',
-                    reference: 'CCC 568',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P1K.HTM'
-                },
                 scriptures: [
                     { quote: 'Six days later, Jesus took with him Peter and James and his brother John and led them up a high mountain, by themselves.', reference: 'Matthew 17:1 (NRSV)' },
                     { quote: 'And he was transfigured before them, and his face shone like the sun, and his clothes became dazzling white.', reference: 'Matthew 17:2 (NRSV)' },
@@ -438,11 +343,6 @@ const MYSTERIES = {
             {
                 name: 'The Institution of the Eucharist',
                 johnPaulIIReflection: 'The Institution of the Eucharist is the source and summit of the Christian life. In this mystery, Christ gives himself as food for our journey, establishing the new and eternal covenant through his Body and Blood.',
-                catechismQuote: {
-                    text: 'The Eucharist is "the source and summit of the Christian life".',
-                    reference: 'CCC 1324',
-                    url: 'https://www.vatican.va/archive/ENG0015/__P3Z.HTM'
-                },
                 scriptures: [
                     { quote: 'On the first day of Unleavened Bread the disciples came to Jesus, saying, "Where do you want us to make the preparations for you to eat the Passover?"', reference: 'Matthew 26:17 (NRSV)' },
                     { quote: 'He said, "Go into the city to a certain man, and say to him, \'The Teacher says, My time is near; I will keep the Passover at your house with my disciples.\'"', reference: 'Matthew 26:18 (NRSV)' },

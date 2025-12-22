@@ -247,7 +247,7 @@ class RosaryApp {
             sourceLink.href = 'https://www.vatican.va/content/john-paul-ii/en/apost_letters/2002/documents/hf_jp-ii_apl_20021016_rosarium-virginis-mariae.html';
             sourceLink.target = '_blank';
             sourceLink.rel = 'noopener noreferrer';
-            sourceLink.className = 'catechism-reference-link';
+            sourceLink.className = 'reference-link';
             sourceLink.textContent = 'Rosarium Virginis Mariae (2002)';
             sourceP.appendChild(sourceLink);
             summaryDiv.appendChild(sourceP);
@@ -302,7 +302,6 @@ class RosaryApp {
                 scripture: null,
                 mysteryIndex: mysteryIndex,
                 mysteryName: mystery.name,
-                catechismQuote: mystery.catechismQuote || null,
                 johnPaulIIReflection: mystery.johnPaulIIReflection || null
             });
 
@@ -383,8 +382,6 @@ class RosaryApp {
         const fatimaSection = document.getElementById('fatima-prayer-section');
         const fatimaTitle = document.getElementById('fatima-prayer-title');
         const fatimaText = document.getElementById('fatima-prayer-text');
-        const catechismQuote = document.getElementById('catechism-quote');
-        const catechismReference = document.getElementById('catechism-reference');
         const johnPaulReflection = document.getElementById('john-paul-reflection');
         const johnPaulReference = document.getElementById('john-paul-reference');
         const quote = document.getElementById('scripture-quote');
@@ -437,27 +434,6 @@ class RosaryApp {
             fatimaSection.classList.add('hidden');
         }
 
-        // Display Catechism quote for Our Father of each mystery
-        if (step.catechismQuote && step.type === 'ourFather') {
-            catechismQuote.textContent = step.catechismQuote.text;
-            
-            // Create hyperlink for Catechism reference
-            const catechismLink = document.createElement('a');
-            catechismLink.href = step.catechismQuote.url;
-            catechismLink.target = '_blank';
-            catechismLink.rel = 'noopener noreferrer';
-            catechismLink.textContent = step.catechismQuote.reference;
-            catechismLink.className = 'catechism-reference-link';
-            
-            catechismReference.innerHTML = '';
-            catechismReference.appendChild(catechismLink);
-            catechismQuote.classList.remove('hidden');
-            catechismReference.classList.remove('hidden');
-        } else {
-            catechismQuote.classList.add('hidden');
-            catechismReference.classList.add('hidden');
-        }
-
         // Display John Paul II reflection for Our Father of each mystery
         if (step.johnPaulIIReflection && step.type === 'ourFather') {
             johnPaulReflection.textContent = step.johnPaulIIReflection;
@@ -468,7 +444,7 @@ class RosaryApp {
             jp2Link.target = '_blank';
             jp2Link.rel = 'noopener noreferrer';
             jp2Link.textContent = 'St. John Paul II, Rosarium Virginis Mariae (2002)';
-            jp2Link.className = 'catechism-reference-link';
+            jp2Link.className = 'reference-link';
             
             johnPaulReference.innerHTML = '';
             johnPaulReference.appendChild(jp2Link);

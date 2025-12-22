@@ -725,35 +725,14 @@ h2 {
     text-align: center;
 }
 
-#catechism-quote {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    font-style: italic;
-    margin: 15px 0;
-    padding: 20px;
-    background: #fff9e6;
-    border-left: 4px solid #d2b48c;
-    border-radius: 5px;
-}
-
-#catechism-reference {
-    font-size: 0.95rem;
-    color: #666;
-    text-align: right;
-    margin-top: 2px;
-    margin-bottom: 30px;
-    font-style: italic;
-}
-
-.catechism-reference-link {
-    color: #d2b48c;
+.reference-link {
+    color: #667eea;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.catechism-reference-link:hover {
-    color: #a0826d;
+.reference-link:hover {
+    color: #5568d3;
     text-decoration: underline;
 }
 
@@ -1117,21 +1096,11 @@ h2 {
         color: #e0e0e0;
     }
     
-    #catechism-quote {
-        background: #2d2d2d;
-        color: #d0d0d0;
-        border-left-color: #8b7355;
-    }
-    
-    #catechism-reference {
-        color: #b0b0b0;
-    }
-    
-    .catechism-reference-link {
+    .reference-link {
         color: #9bb5ff;
     }
     
-    .catechism-reference-link:hover {
+    .reference-link:hover {
         color: #b8c9ff;
     }
     
