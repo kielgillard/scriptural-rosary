@@ -542,3 +542,132 @@ that we may be made worthy of the promises of Christ. Amen.`
     }
 };
 
+// Pope's Prayer Intentions by year and month
+// Source: https://www.usccb.org/prayers/popes-monthly-intentions-2025
+// Source: https://www.catholicnewsagency.com/news/268555/these-are-pope-leo-xiv-s-prayer-intentions-for-2026
+const POPE_PRAYER_INTENTIONS = {
+    2025: {
+        1: { // January
+            title: 'For the right to an education',
+            text: 'Let us pray for migrants, refugees, and those affected by war, that their right to an education, which is necessary to build a better world, might always be respected.'
+        },
+        2: { // February
+            title: 'For vocations to the priesthood and religious life',
+            text: 'Let us pray that the ecclesial community might welcome the desires and doubts of those young people who feel a call to serve Christ\'s mission in the priesthood and religious life.'
+        },
+        3: { // March
+            title: 'For families in crisis',
+            text: 'Let us pray that broken families might discover the cure for their wounds through forgiveness, rediscovering each other\'s gifts, even in their differences.'
+        },
+        4: { // April
+            title: 'For the use of the new technologies',
+            text: 'Let us pray that the use of the new technologies will not replace human relationships, will respect the dignity of the person, and will help us face the crises of our times.'
+        },
+        5: { // May
+            title: 'For working conditions',
+            text: 'Let us pray that through work, each person might find fulfillment, families might be sustained in dignity, and that society might be humanized.'
+        },
+        6: { // June
+            title: 'That the world might grow in compassion',
+            text: 'Let us pray that each one of us might find consolation in a personal relationship with Jesus, and from his Heart, learn to have compassion on the world.'
+        },
+        7: { // July
+            title: 'For formation in discernment',
+            text: 'Let us pray that we might again learn how to discern, to know how to choose paths of life, and reject everything that leads us away from Christ and the Gospel.'
+        },
+        8: { // August
+            title: 'For mutual coexistence',
+            text: 'Let us pray that societies where coexistence seems more difficult might not succumb to the temptation of confrontation for ethnic, political, religious, or ideological reasons.'
+        },
+        9: { // September
+            title: 'For our relationship with all of creation',
+            text: 'Let us pray that, inspired by Saint Francis, we might experience our interdependence with all creatures who are loved by God and worthy of love and respect.'
+        },
+        10: { // October
+            title: 'For collaboration between different religious traditions',
+            text: 'Let us pray that believers in different religious traditions might work together to defend and promote peace, justice, and human fraternity.'
+        },
+        11: { // November
+            title: 'For the prevention of suicide',
+            text: 'Let us pray that those who are struggling with suicidal thoughts might find the support, care, and love they need in their community, and be open to the beauty of life.'
+        },
+        12: { // December
+            title: 'For Christians in areas of conflict',
+            text: 'Let us pray that Christians living in areas of war or conflict, especially in the Middle East, might be seeds of peace, reconciliation, and hope.'
+        }
+    },
+    2026: {
+        1: { // January
+            title: 'For prayer with the word of God',
+            text: 'Let us pray that praying with the word of God be nourishment for our lives and a source of hope in our communities, helping us to build a more fraternal and missionary Church.'
+        },
+        2: { // February
+            title: 'For children with incurable diseases',
+            text: 'Let us pray that children suffering from incurable diseases and their families receive the necessary medical care and support, never losing strength and hope.'
+        },
+        3: { // March
+            title: 'For disarmament and peace',
+            text: 'Let us pray that nations move toward effective disarmament, particularly nuclear disarmament, and that world leaders choose the path of dialogue and diplomacy instead of violence.'
+        },
+        4: { // April
+            title: 'For priests in crisis',
+            text: 'Let us pray for priests going through moments of crisis in their vocation, that they may find the accompaniment they need and that communities may support them with understanding and prayer.'
+        },
+        5: { // May
+            title: 'That everyone might have food',
+            text: 'Let us pray that everyone, from large producers to small consumers, be committed to avoid wasting food and to ensure that everyone has access to quality food.'
+        },
+        6: { // June
+            title: 'For the values of sports',
+            text: 'Let us pray that sports be an instrument of peace, encounter, and dialogue among cultures and nations, and that they promote values such as respect, solidarity, and personal growth.'
+        },
+        7: { // July
+            title: 'For respect for human life',
+            text: 'Let us pray for the respect and protection of human life in all its stages, recognizing it as a gift from God.'
+        },
+        8: { // August
+            title: 'For evangelization in the city',
+            text: 'Let us pray that in large cities often marked by anonymity and loneliness we find new ways to proclaim the Gospel, discovering creative paths to build community.'
+        },
+        9: { // September
+            title: 'For the care of water',
+            text: 'Let us pray for a just and sustainable management of water, a vital resource, so that everyone may have equal access to it.'
+        },
+        10: { // October
+            title: 'For mental health ministry',
+            text: 'Let us pray that mental health ministry be established throughout the Church, helping to overcome the stigma and discrimination of persons with mental illnesses.'
+        },
+        11: { // November
+            title: 'For the proper use of wealth',
+            text: 'Let us pray for the proper use of wealth, that not succumbing to the temptation of selfishness, it may always be put at the service of the common good and solidarity of those who have less.'
+        },
+        12: { // December
+            title: 'For single-parent families',
+            text: 'Let us pray for families experiencing the absence of a mother or father, that they may find support and accompaniment in the Church, and help and strength in the faith during difficult times.'
+        }
+    }
+};
+
+// Function to get the current month's prayer intention
+function getCurrentMonthPrayerIntention() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1; // getMonth() returns 0-11, we need 1-12
+    
+    // Check if we have data for this year
+    if (POPE_PRAYER_INTENTIONS[year] && POPE_PRAYER_INTENTIONS[year][month]) {
+        return POPE_PRAYER_INTENTIONS[year][month];
+    }
+    
+    // Fallback: try 2025, then 2026 data if current year doesn't have data
+    if (POPE_PRAYER_INTENTIONS[2025] && POPE_PRAYER_INTENTIONS[2025][month]) {
+        return POPE_PRAYER_INTENTIONS[2025][month];
+    }
+    if (POPE_PRAYER_INTENTIONS[2026] && POPE_PRAYER_INTENTIONS[2026][month]) {
+        return POPE_PRAYER_INTENTIONS[2026][month];
+    }
+    
+    // If no data available, return null
+    return null;
+}
+

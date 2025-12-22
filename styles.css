@@ -650,6 +650,30 @@ h2 {
     opacity: 0.85;
 }
 
+#pope-prayer-intention {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff5e6;
+    border-left: 4px solid #ffa500;
+    border-radius: 5px;
+}
+
+#pope-prayer-intention-title {
+    font-size: 1.2rem;
+    color: #667eea;
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#pope-prayer-intention-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+    font-style: italic;
+}
+
 #prayer-text {
     font-size: 1.3rem;
     line-height: 1.8;
@@ -1074,6 +1098,19 @@ h2 {
     
     #prayer-type-heading {
         color: #9bb5ff;
+    }
+    
+    #pope-prayer-intention {
+        background: #3a3a2a;
+        border-left-color: #ffa500;
+    }
+    
+    #pope-prayer-intention-title {
+        color: #9bb5ff;
+    }
+    
+    #pope-prayer-intention-text {
+        color: #d0d0d0;
     }
     
     #prayer-text {

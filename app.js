@@ -273,12 +273,15 @@ class RosaryApp {
             scripture: null
         });
 
-        // Opening: 3 Hail Marys
+        // Opening: 3 Hail Marys with Pope's prayer intentions
+        const currentPrayerIntention = getCurrentMonthPrayerIntention();
         for (let i = 0; i < 3; i++) {
             this.steps.push({
                 type: 'hailMary',
                 prayer: PRAYERS.hailMary,
-                scripture: null
+                scripture: null,
+                isOpeningHailMary: true, // Mark as opening Hail Mary
+                prayerIntention: currentPrayerIntention // Add Pope's prayer intention
             });
         }
 
@@ -371,6 +374,9 @@ class RosaryApp {
         // Update prayer content
         const text = document.getElementById('prayer-text');
         const prayerTypeHeading = document.getElementById('prayer-type-heading');
+        const popePrayerIntention = document.getElementById('pope-prayer-intention');
+        const popePrayerIntentionTitle = document.getElementById('pope-prayer-intention-title');
+        const popePrayerIntentionText = document.getElementById('pope-prayer-intention-text');
         const gloryBeSection = document.getElementById('glory-be-section');
         const gloryBeTitle = document.getElementById('glory-be-title');
         const gloryBeText = document.getElementById('glory-be-text');
@@ -400,6 +406,15 @@ class RosaryApp {
             prayerTypeHeading.classList.remove('hidden');
         } else {
             prayerTypeHeading.classList.add('hidden');
+        }
+
+        // Display Pope's prayer intention for opening Hail Marys
+        if (step.isOpeningHailMary && step.prayerIntention) {
+            popePrayerIntentionTitle.textContent = step.prayerIntention.title;
+            popePrayerIntentionText.textContent = step.prayerIntention.text;
+            popePrayerIntention.classList.remove('hidden');
+        } else {
+            popePrayerIntention.classList.add('hidden');
         }
 
         // Display Glory Be with heading if it's a Glory Be step
