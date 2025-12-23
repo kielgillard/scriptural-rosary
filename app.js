@@ -138,7 +138,7 @@ class RosaryApp {
                     ${artImage}
                 </div>
                 <h3>${mystery.name}</h3>
-                <p>Pray the ${mystery.name.toLowerCase()} with scriptural meditations</p>
+                <p>${mystery.callToAction || `Pray the ${mystery.name.toLowerCase()} with scriptural meditations`}</p>
             `;
             
             card.addEventListener('click', () => {
