@@ -23,6 +23,16 @@ class RosaryApp {
             this.startPrayer();
         });
 
+        // Overview screen back button
+        document.getElementById('overview-back-btn').addEventListener('click', () => {
+            this.goToHome();
+        });
+
+        // Mobile overview back button
+        document.getElementById('mobile-overview-back-btn').addEventListener('click', () => {
+            this.goToHome();
+        });
+
         document.getElementById('next-btn').addEventListener('click', () => {
             this.nextStep();
         });
@@ -86,12 +96,38 @@ class RosaryApp {
                     e.preventDefault();
                     if (activeScreen.id === 'prayer-screen') {
                         this.nextStep();
+                    } else if (activeScreen.id === 'overview-screen') {
+                        // Right arrow on overview screen acts like Enter - starts prayer
+                        // Don't start prayer if we just switched to overview (prevents accidental navigation)
+                        if (!this.justSwitchedToOverview) {
+                            this.startPrayer();
+                        }
                     }
                 } else if (e.key === 'Enter') {
+                    // Don't interfere if user is typing in an input/textarea
+                    const target = e.target;
+                    if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+                        return;
+                    }
+                    
+                    // Don't interfere with expandable text buttons on overview screen
+                    if (target.classList && target.classList.contains('expandable-button')) {
+                        return;
+                    }
+                    
                     e.preventDefault();
                     e.stopPropagation();
-                    if (activeScreen.id === 'overview-screen' && !this.justSwitchedToOverview) {
+                    
+                    if (activeScreen && activeScreen.id === 'overview-screen') {
+                        // Don't start prayer if we just switched to overview (prevents accidental navigation)
+                        if (this.justSwitchedToOverview) {
+                            return;
+                        }
+                        // Trigger "Begin Meditating" button
                         this.startPrayer();
+                    } else if (activeScreen && activeScreen.id === 'prayer-screen') {
+                        // Trigger "Next" button (or "Return to Home" if on last step)
+                        this.nextStep();
                     }
                 }
             }
@@ -730,13 +766,9 @@ class RosaryApp {
         const mobileNextBtn = document.getElementById('mobile-next-btn');
         const mobileBackBtn = document.getElementById('mobile-back-btn');
 
-        if (this.currentStep === 0) {
-            backBtn.style.display = 'none';
-            if (mobileBackBtn) mobileBackBtn.style.display = 'none';
-        } else {
-            backBtn.style.display = 'inline-block';
-            if (mobileBackBtn) mobileBackBtn.style.display = 'inline-block';
-        }
+        // Always show back button (even on step 0, it will go to overview)
+        backBtn.style.display = 'inline-block';
+        if (mobileBackBtn) mobileBackBtn.style.display = 'inline-block';
 
         const nextBtnText = this.currentStep === this.steps.length - 1 ? 'Return to Home' : 'Next';
         nextBtn.textContent = nextBtnText;
@@ -1022,7 +1054,19 @@ class RosaryApp {
     }
 
     previousStep() {
-        if (this.currentStep > 0) {
+        if (this.currentStep === 0) {
+            // On the first step (Apostle's Creed), go back to overview screen
+            if (!this.currentMystery) {
+                // If no mystery is set, go to home instead
+                this.goToHome();
+                return;
+            }
+            this.showScreen('overview-screen');
+            // Use setTimeout to ensure screen is visible before rendering
+            setTimeout(() => {
+                this.renderOverview();
+            }, 10);
+        } else if (this.currentStep > 0) {
             this.currentStep--;
             this.renderPrayerStep();
         }
