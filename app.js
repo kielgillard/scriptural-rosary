@@ -211,6 +211,198 @@ class RosaryApp {
         }, 10);
     }
 
+    // Parse a Bible reference string into structured data
+    parseBibleReference(reference) {
+        // Remove version in parentheses if present (e.g., "(NRSV)")
+        let refText = reference.trim().replace(/\s*\([^)]+\)\s*$/, '').trim();
+        
+        // Match pattern: "Book Chapter:VerseRange"
+        // Examples: "Luke 1:26-27", "1 Kings 2:19", "Matthew 26:36"
+        const match = refText.match(/^(.+?)\s+(\d+):(\d+)(?:-(\d+))?$/);
+        
+        if (!match) {
+            // If parsing fails, return null
+            return null;
+        }
+        
+        const book = match[1].trim();
+        const chapter = parseInt(match[2], 10);
+        const verseStart = parseInt(match[3], 10);
+        const verseEnd = match[4] ? parseInt(match[4], 10) : verseStart;
+        
+        return {
+            book: book,
+            chapter: chapter,
+            verseStart: verseStart,
+            verseEnd: verseEnd
+        };
+    }
+
+    // Collect all scripture references from all mysteries in a set
+    collectAllScriptureReferences(mysterySet) {
+        const scriptures = [];
+        
+        if (!mysterySet || !mysterySet.mysteries) {
+            return scriptures;
+        }
+        
+        mysterySet.mysteries.forEach(mystery => {
+            if (mystery.scriptures && Array.isArray(mystery.scriptures)) {
+                mystery.scriptures.forEach(scripture => {
+                    if (scripture.reference && scripture.quote) {
+                        scriptures.push(scripture);
+                    }
+                });
+            }
+        });
+        
+        return scriptures;
+    }
+
+    // Group references by book/chapter and merge contiguous verses
+    groupAndMergeReferences(scriptures) {
+        // Parse all references and preserve quotes
+        const parsedRefs = scriptures.map(scripture => {
+            const parsed = this.parseBibleReference(scripture.reference);
+            return parsed ? { 
+                ...parsed, 
+                originalRef: scripture.reference,
+                quote: scripture.quote
+            } : null;
+        }).filter(ref => ref !== null);
+        
+        // Group by book and chapter
+        const grouped = {};
+        parsedRefs.forEach(ref => {
+            const key = `${ref.book}|${ref.chapter}`;
+            if (!grouped[key]) {
+                grouped[key] = [];
+            }
+            grouped[key].push(ref);
+        });
+        
+        // Merge contiguous verses for each book/chapter group
+        const merged = [];
+        const seenKeys = new Set();
+        
+        // Process in order of first appearance
+        parsedRefs.forEach(ref => {
+            const key = `${ref.book}|${ref.chapter}`;
+            if (seenKeys.has(key)) {
+                return; // Already processed this book/chapter
+            }
+            seenKeys.add(key);
+            
+            const group = grouped[key];
+            // Sort by verseStart
+            group.sort((a, b) => a.verseStart - b.verseStart);
+            
+            // Merge contiguous ranges
+            const mergedRanges = [];
+            let currentRange = { 
+                ...group[0],
+                quotes: [group[0].quote] // Start with first quote
+            };
+            
+            for (let i = 1; i < group.length; i++) {
+                const next = group[i];
+                // Check if next range is contiguous or overlapping
+                if (next.verseStart <= currentRange.verseEnd + 1) {
+                    // Merge: extend current range
+                    currentRange.verseEnd = Math.max(currentRange.verseEnd, next.verseEnd);
+                    // Add quote if not already included
+                    if (!currentRange.quotes.includes(next.quote)) {
+                        currentRange.quotes.push(next.quote);
+                    }
+                } else {
+                    // Not contiguous: save current range and start new one
+                    mergedRanges.push(currentRange);
+                    currentRange = { 
+                        ...next,
+                        quotes: [next.quote]
+                    };
+                }
+            }
+            mergedRanges.push(currentRange);
+            
+            // Add all merged ranges for this book/chapter
+            merged.push(...mergedRanges);
+        });
+        
+        return merged;
+    }
+
+    // Format a merged reference object back to string
+    formatMergedReference(ref) {
+        if (ref.verseStart === ref.verseEnd) {
+            return `${ref.book} ${ref.chapter}:${ref.verseStart}`;
+        } else {
+            return `${ref.book} ${ref.chapter}:${ref.verseStart}-${ref.verseEnd}`;
+        }
+    }
+
+    // Create an expandable text section with gradient fade teaser
+    createExpandableTextSection(headingText, contentElements, sectionId) {
+        const section = document.createElement('div');
+        section.className = 'expandable-section';
+        section.id = sectionId;
+        
+        // Create heading
+        const heading = document.createElement('h3');
+        heading.textContent = headingText;
+        section.appendChild(heading);
+        
+        // Create content wrapper
+        const contentWrapper = document.createElement('div');
+        contentWrapper.className = 'expandable-content';
+        contentWrapper.id = `${sectionId}-content`;
+        
+        // Add all content elements
+        if (Array.isArray(contentElements)) {
+            contentElements.forEach(element => {
+                contentWrapper.appendChild(element);
+            });
+        } else if (contentElements instanceof Node) {
+            contentWrapper.appendChild(contentElements);
+        } else if (contentElements instanceof DocumentFragment) {
+            contentWrapper.appendChild(contentElements);
+        }
+        
+        // Create gradient fade overlay
+        const fadeOverlay = document.createElement('div');
+        fadeOverlay.className = 'expandable-fade';
+        contentWrapper.appendChild(fadeOverlay);
+        
+        section.appendChild(contentWrapper);
+        
+        // Create "Read more" button
+        const expandButton = document.createElement('button');
+        expandButton.className = 'expandable-button';
+        expandButton.textContent = 'Read more';
+        expandButton.setAttribute('aria-expanded', 'false');
+        expandButton.setAttribute('aria-controls', `${sectionId}-content`);
+        expandButton.setAttribute('aria-label', `Expand ${headingText.toLowerCase()} content`);
+        expandButton.type = 'button';
+        
+        // Add click handler
+        expandButton.addEventListener('click', () => {
+            section.classList.add('expanded');
+            expandButton.setAttribute('aria-expanded', 'true');
+        });
+        
+        // Add keyboard support (Enter and Space)
+        expandButton.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                expandButton.click();
+            }
+        });
+        
+        section.appendChild(expandButton);
+        
+        return section;
+    }
+
     renderOverview() {
         // Update header title
         document.getElementById('header-title').textContent = this.currentMystery.name;
@@ -220,15 +412,64 @@ class RosaryApp {
         // Clear any existing content
         overview.innerHTML = '';
         
+        // Display Scripture references section
+        const allScriptures = this.collectAllScriptureReferences(this.currentMystery);
+        if (allScriptures.length > 0) {
+            const mergedRefs = this.groupAndMergeReferences(allScriptures);
+            if (mergedRefs.length > 0) {
+                // Collect all scripture quote elements
+                const scriptureContentElements = [];
+                
+                mergedRefs.forEach(mergedRef => {
+                    // Create scripture quote container (similar to prayer screen)
+                    const quoteDiv = document.createElement('div');
+                    quoteDiv.className = 'overview-scripture-quote';
+                    
+                    // Display all quotes for this merged reference
+                    mergedRef.quotes.forEach((quote, index) => {
+                        const quoteP = document.createElement('p');
+                        quoteP.className = 'overview-scripture-quote-text';
+                        quoteP.textContent = quote;
+                        quoteDiv.appendChild(quoteP);
+                    });
+                    
+                    // Add reference with link
+                    const refDiv = document.createElement('div');
+                    refDiv.className = 'overview-scripture-reference';
+                    const refLink = document.createElement('a');
+                    const formattedRef = this.formatMergedReference(mergedRef);
+                    refLink.href = this.createBibleGatewayLink(formattedRef + ' (NRSV)');
+                    refLink.target = '_blank';
+                    refLink.rel = 'noopener noreferrer';
+                    refLink.className = 'bible-reference-link';
+                    refLink.textContent = formattedRef;
+                    refDiv.appendChild(refLink);
+                    quoteDiv.appendChild(refDiv);
+                    
+                    scriptureContentElements.push(quoteDiv);
+                });
+                
+                // Add introductory text before scripture quotes
+                const introP = document.createElement('p');
+                introP.className = 'scripture-intro';
+                introP.textContent = 'These verses will be meditated upon during these mysteries. You might like to read them altogether.';
+                scriptureContentElements.unshift(introP);
+                
+                // Create expandable Scripture section
+                const scriptureSection = this.createExpandableTextSection(
+                    'Scripture of Mysteries',
+                    scriptureContentElements,
+                    'scripture-section'
+                );
+                scriptureSection.className += ' jpii-summary';
+                overview.appendChild(scriptureSection);
+            }
+        }
+        
         // Display John Paul II summary if available
         if (this.currentMystery.jpiiSummary) {
-            const summaryDiv = document.createElement('div');
-            summaryDiv.className = 'jpii-summary';
-            
-            // Create heading
-            const heading = document.createElement('h3');
-            heading.textContent = 'Reflection by St. John Paul II';
-            summaryDiv.appendChild(heading);
+            // Collect all reflection content elements
+            const reflectionContentElements = [];
             
             // Create paragraphs from the text, preserving line breaks
             const paragraphs = this.currentMystery.jpiiSummary.split('\n\n');
@@ -236,7 +477,7 @@ class RosaryApp {
                 if (paragraph.trim()) {
                     const p = document.createElement('p');
                     p.textContent = paragraph.trim();
-                    summaryDiv.appendChild(p);
+                    reflectionContentElements.push(p);
                 }
             });
             
@@ -250,9 +491,16 @@ class RosaryApp {
             sourceLink.className = 'reference-link';
             sourceLink.textContent = 'Rosarium Virginis Mariae (2002)';
             sourceP.appendChild(sourceLink);
-            summaryDiv.appendChild(sourceP);
+            reflectionContentElements.push(sourceP);
             
-            overview.appendChild(summaryDiv);
+            // Create expandable Reflection section
+            const reflectionSection = this.createExpandableTextSection(
+                'Reflection by St. John Paul II',
+                reflectionContentElements,
+                'reflection-section'
+            );
+            reflectionSection.className += ' jpii-summary';
+            overview.appendChild(reflectionSection);
         }
     }
 

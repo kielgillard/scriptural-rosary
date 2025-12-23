@@ -282,6 +282,11 @@ h2 {
 
 .jpii-summary {
     width: 100%;
+    margin-bottom: 40px;
+}
+
+.jpii-summary:last-child {
+    margin-bottom: 0;
 }
 
 .jpii-summary h3 {
@@ -305,6 +310,97 @@ h2 {
     color: #666;
     font-style: italic;
     margin-top: 20px;
+}
+
+.overview-scripture-quote {
+    margin: 15px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    border-radius: 5px;
+}
+
+.overview-scripture-quote-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.overview-scripture-quote-text:last-of-type {
+    margin-bottom: 0;
+}
+
+.overview-scripture-reference {
+    font-size: 1rem;
+    color: #666;
+    text-align: right;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Expandable Text Pattern */
+.expandable-section {
+    position: relative;
+}
+
+.expandable-content {
+    position: relative;
+    max-height: 9rem; /* ~5 lines at 1.8rem line-height */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.expandable-section.expanded .expandable-content {
+    max-height: none;
+}
+
+.expandable-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, white);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.expandable-section.expanded .expandable-fade {
+    display: none;
+}
+
+.expandable-button {
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border: 1px solid #667eea;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.expandable-button:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: #5568d3;
+    color: #5568d3;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.expandable-button:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+.expandable-section.expanded .expandable-button {
+    display: none;
 }
 
 .rosary-structure {
@@ -1162,6 +1258,39 @@ h2 {
     
     .jpii-summary .summary-source {
         color: #b0b0b0;
+    }
+    
+    .overview-scripture-quote {
+        background: #2d2d2d;
+        border-left-color: #8b9aff;
+    }
+    
+    .overview-scripture-quote-text {
+        color: #d0d0d0;
+    }
+    
+    .overview-scripture-reference {
+        color: #b0b0b0;
+    }
+    
+    .expandable-fade {
+        background: linear-gradient(to bottom, transparent, #1a1a1a);
+    }
+    
+    .expandable-button {
+        background: rgba(102, 126, 234, 0.15);
+        color: #9bb5ff;
+        border-color: #8b9aff;
+    }
+    
+    .expandable-button:hover {
+        background: rgba(102, 126, 234, 0.25);
+        border-color: #9bb5ff;
+        color: #b8c9ff;
+    }
+    
+    .expandable-button:focus {
+        outline-color: #8b9aff;
     }
     
     .mystery-bead.ourFather {
